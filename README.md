@@ -14,30 +14,49 @@ device driver of Raspberry Pi Gibbon
 
 ## Installation
 
+First, check `build-essentials` has been installed.
 
-First, download this repository.
+```
+sudo apt install build-essential
+```
+
+Next, download this repository.
 
 ```
 git clone https://github.com/Tiryoh/raspigibbon_driver.git
 ```
 
-Next, move into raspigibbon_driver directory and run make command.
+After that, move into raspigibbon_driver directory and run make command.
 
 ```
 cd raspigibbon_driver
 make && sudo make install
 ```
 
+If you need to uninstall this driver, run make command with uninstall argument.
+
+```
+sudo make uninstall
+```
+
 ## Usage
 
-After installation, test gpio check scripts.  
+After installation, test gpio check scripts.
+
 The LED on the board will blink.
 
 ```
 ./scripts/test_leds.sh
 ```
 
-## Reference
+Status of switches will shown.
+
+```
+./scripts/test_switches.sh
+```
+
+
+## References & Includings
 
 This device driver is derived from this repository.
 
