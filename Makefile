@@ -19,7 +19,7 @@ clean:
 install: rtled.ko rtswitch.ko uninstall
 	insmod rtled.ko
 	insmod rtswitch.ko
-	[ -e /dev/rtswitch2 ] || sleep 0.1
+	[ -e /dev/rtswitch2 ] || sleep 1
 	chmod 666 /dev/rt*
 
 uninstall:
