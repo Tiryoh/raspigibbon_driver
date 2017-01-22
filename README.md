@@ -1,5 +1,7 @@
 # raspigibbon_driver
 
+[![Build Status](https://travis-ci.org/Tiryoh/raspigibbon_driver.svg?branch=master)](https://travis-ci.org/Tiryoh/raspigibbon_driver)
+
 device driver of Raspberry Pi Gibbon
 
 ## Requirements
