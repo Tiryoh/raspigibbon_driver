@@ -71,10 +71,10 @@ static volatile int open_counter = 0;
 #define NUM_DEV_LED 4
 #define NUM_DEV_TOTAL NUM_DEV_LED
 
-#define LED0_BASE 25
-#define LED1_BASE 24
-#define LED2_BASE 23
-#define LED3_BASE 18
+#define LED0_BASE 18
+#define LED1_BASE 23
+#define LED2_BASE 24
+#define LED3_BASE 25
 
 #define DEVNAME_LED "rtled"
 
