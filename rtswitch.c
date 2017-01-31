@@ -32,7 +32,7 @@
 MODULE_AUTHOR("Daisuke Sato");
 MODULE_DESCRIPTION("device driver of Raspberry Pi Gibbon");
 MODULE_LICENSE("GPL");
-MODULE_VERSION("0.1");
+MODULE_VERSION("0.2");
 
 static struct cdev *cdev_array = NULL;
 static struct class *class_switch = NULL;
@@ -75,9 +75,9 @@ static int buflen = 0;
 #define NUM_DEV_SWITCH 3
 #define NUM_DEV_TOTAL NUM_DEV_SWITCH
 
-#define SW1_PIN 20
+#define SW1_PIN 21
 #define SW2_PIN 26
-#define SW3_PIN 21
+#define SW3_PIN 20
 
 #define DEVNAME_SWITCH "rtswitch"
 

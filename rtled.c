@@ -32,7 +32,7 @@
 MODULE_AUTHOR("Daisuke Sato");
 MODULE_DESCRIPTION("device driver of Raspberry Pi Gibbon");
 MODULE_LICENSE("GPL");
-MODULE_VERSION("0.1");
+MODULE_VERSION("0.2");
 
 static struct cdev *cdev_array = NULL;
 static struct class *class_led = NULL;
