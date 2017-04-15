@@ -4,12 +4,15 @@
 
 device driver of Raspberry Pi Gibbon
 
+device driver installer : [Tiryoh/raspigibbon_driver_installer](https://github.com/Tiryoh/raspigibbon_driver_installer)
+
 ## Requirements
 
 * Raspberry Pi 2 or Raspberry Pi 3
   * tested only on Raspberry Pi 3
 * Ubuntu Xenial 16.04
   * Ubuntu (4.4.0-1009-raspi2)
+  * Ubuntu (4.4.0-1051-raspi2)
   * Ubuntu MATE (4.1.19-v7+)
 * linux kernel source
   * download kernel source into `/usr/src/linux`
