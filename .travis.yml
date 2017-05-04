@@ -19,12 +19,19 @@ before_script:
     - export DRIVER_SRC_DIR=`pwd` && echo $DRIVER_SRC_DIR
     - mkdir -p $HOME/repo/raspberrypi && cd $HOME/repo/raspberrypi
     - git clone --depth 1 https://github.com/raspberrypi/tools.git
-    - git clone -b rpi-4.1.y https://github.com/raspberrypi/linux.git
-    - cd linux
-    - cp $DRIVER_SRC_DIR/.test/config-pi3-mate ./.config
-    - make CROSS_COMPILE=$HOME/repo/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf- ARCH=arm oldconfig
-    - make CROSS_COMPILE=$HOME/repo/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf- ARCH=arm -j 8
+    - git clone https://github.com/raspberrypi/linux.git
 
 script:
+    - cd $HOME/repo/raspberrypi/linux && git checkout b9a9cfdbf725
+    - cp $DRIVER_SRC_DIR/.test/config-pi3-mate-4.1.19 ./.config
+    - make CROSS_COMPILE=$HOME/repo/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf- ARCH=arm oldconfig
+    - make CROSS_COMPILE=$HOME/repo/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf- ARCH=arm -j 8
+    - cd $DRIVER_SRC_DIR
+    - make -f ./.test/Makefile.crosscompile
+    - make -f ./.test/Makefile.crosscompile clean
+    - cd $HOME/repo/raspberrypi/linux && make clean && git reset --hard HEAD && git checkout c95b7f1fab0c7688
+    - cp -f $DRIVER_SRC_DIR/.test/config-pi3-mate-4.4.38 ./.config
+    - make CROSS_COMPILE=$HOME/repo/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf- ARCH=arm oldconfig
+    - make CROSS_COMPILE=$HOME/repo/raspberrypi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf- ARCH=arm -j 8
     - cd $DRIVER_SRC_DIR
     - make -f ./.test/Makefile.crosscompile
