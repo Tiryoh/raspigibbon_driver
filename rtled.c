@@ -20,7 +20,6 @@
  *
  */
 
-#include <asm/uaccess.h>
 #include <linux/cdev.h>
 #include <linux/delay.h>
 #include <linux/device.h>
@@ -28,6 +27,7 @@
 #include <linux/io.h>
 #include <linux/module.h>
 #include <linux/slab.h>
+#include <linux/uaccess.h>
 
 MODULE_AUTHOR("Daisuke Sato");
 MODULE_DESCRIPTION("device driver of Raspberry Pi Gibbon");
@@ -133,7 +133,7 @@ static int led_del(int ledno) {
   return 0;
 }
 
-static ssize_t led_write(struct file *filep, const char *buf, size_t count,
+static ssize_t led_write(struct file *filep, const char __user *buf, size_t count,
                          loff_t *pos) {
   char cval;
   int ret;
